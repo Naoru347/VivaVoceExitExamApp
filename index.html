@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.css"></link>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-animate.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-aria.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-messages.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.js"></script>
+        <!-- <script src="./angular.min.js"></script> -->
+        <!-- <link rel="stylesheet" href="./angular-material.min.css"> -->
+        <!-- <link rel="stylessheet" href="custom-styles.css"> -->
+        <!-- <script src="./angular-animate.min.js"></script>
+        <script src="./angular-aria.min.js"></script>
+        <script src="./angular-messages.min.js"></script>
+        <script src="./angular-material.min.js"></script> -->
+        <script src="./ExamScript.js"></script>
+
+        <title>Viva Voce Exit Exam Site</title>
+        <link rel="icon" href="./testform.png">
+
+    </head>
+    <body ng-app="examApp" ng-controller="control">
+        <div>
+            <md-toolbar>
+                <center><h1>Viva Voce Exit Examination Platform</h1></center>
+            </md-toolbar>
+        </div>
+        <div>
+            <h2>Welcome the Viva Voce Oral Exit Exam Platform!</h2>
+            <p>
+                A <em>viva voce</em>, Latin for "with living voice," is a style of examination in which the examinee must orally defend their work. This form of assessment is commonly used in higher education, particularly for advanced degrees such as a Master's thesis or a Doctoral dissertation. In a viva voce, examiners engage directly with candidates, asking questions to evaluate their understanding and mastery of the subject matter. The viva voce is a critical part of many academic journeys, allowing students to demonstrate their knowledge, articulate their research findings, and engage in scholarly discourse. This platform facilitates the preparation and management of viva voce exams, streamlining the process for both examiners and examinees.
+            </p>
+            <md-divider></md-divider>
+            <center><h3>To access the Viva Voce Exit Examination Platform, enter your login credentials below:</h3></center>
+        </div>
+        <div>
+            <center>
+                <!-- Inline css allows for cleaner aligning of the items -->
+                <form name="loginForm" style="display: flex; flex-direction: column; align-items: center;">
+                    <b>Username:</b> 
+                    <input type="text" ng-model="user.username" required><br>
+                    <b>Login:</b>
+                    <input type="password" ng-model="user.password" required><br>
+                    <br>
+                    <button ng-click="login()">
+                        Login
+                    </button>
+                </form>
+            </center>
+            <md-divider></md-divider>
+        </div>
+    </body>
+    <!-- 
+        Including a footer with a mailto link so that people can email the administrator to sign up for an account.
+        I am the administrator in this simulated case.
+     -->
+    <footer style="font-size: small; text-align: center;">
+        <p>&copy;2023 Paiz EdTech Consulting. All rights reserved</p>
+        <p>VVEE Web Platform v 0.1-beta-3</p>
+        <p>To request access to this site, please <a href="mailto:jpaiz@gwmail.gwu.edu">email your campus VVEE administrator.</a></p>
+    </footer>
+</html>

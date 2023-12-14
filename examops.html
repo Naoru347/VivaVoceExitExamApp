@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.css"></link>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-animate.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-aria.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-messages.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.js"></script>
+        <!-- <script src="angular.min.js"></script> -->
+        <!-- <link rel="stylesheet" href="angular-material.min.css"> -->
+        <link rel="stylesheet" href="./styles.css">
+        <!-- <script src="angular-animate.min.js"></script> -->
+        <!-- <script src="angular-aria.min.js"></script> -->
+        <!-- <script src="angular-messages.min.js"></script> -->
+        <!-- <script src="angular-material.min.js"></script> -->
+        <script src="AdminScript2.js"></script>
+
+        <title>Viva Voce Exit Exam Site</title>
+        <link rel="icon" href="testform.png">
+
+    </head>
+    <body ng-app="adminApp" ng-controller="control">
+        <div>
+            <md-toolbar md-theme="adminTheme">
+                <center><h1>Administrator Terminal<code>&#8212;</code>Exam Records Operations</h1></center>
+            </md-toolbar>
+        </div>
+        <div>
+            <h2>Viva Voce Oral Exam Platform Administration</h2>
+            <p>
+                Welcome {{user.firstname}} {{user.lastname}}! Please note that federal regulations prevent the display of student educational records to non-educational officers. As that is the case, you will be unable to view existing exam records in their entirety.
+            </p> 
+            <md-divider></md-divider>
+            <h3>To remove an exam record, use the form below:</h3>
+            <form id="removeExamRecord">
+                Exam ID (from instructor's email):
+                <input type="text" ng-model="user.removeexamid" required>
+                <br>
+                <button ng-click="removeExamRecord()">Remove Exam Record</button>
+            </form>
+            <p id="output1"></p>
+            <md-divider></md-divider>
+            <h3>To modify a student's score, use the form below:</h3>
+            <form id="modifyExamRecord">
+                Exam ID (from instructor's email):
+                <input type="text" ng-model="user.modifyexamid" required>
+                <br>
+                New Student Score (from instructor's email):
+                <input type="text" ng-model="user.modifyscore" required>
+                <br>
+                <button ng-click="modifyExamRecord()">Modify Exam Record</button>
+            </form>
+            <p id="output2"></p>
+            <md-divider></md-divider>
+            <center>
+                <button ng-click="logout()">
+                    Logout
+                </button>
+            </center>
+        </div>
+    </body>
+    <!-- 
+        Including a footer with a mailto link so that people can email the administrator to sign up for an account.
+        I am the administrator in this simulated case.
+     -->
+    <footer style="font-size: small; text-align: center;">
+        <p>&copy;2023 Paiz EdTech Consulting. All rights reserved</p>
+        <p>VVEE Web Platform v 0.1</p>
+        <p>If you notice errors with the information on this page <a href="mailto:jpaiz@gwmail.gwu.edu">email your campus VVEE administrator.</a></p>
+    </footer>
+</html>

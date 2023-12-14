@@ -1,0 +1,171 @@
+    UGLY PRINTING
+    
+    // static void printTable(String tableName) throws SQLException { 
+    //     //Build and send query
+    //     String sql = "SELECT * FROM " + tableName;
+    //     ResultSet rs = statement.executeQuery(sql);
+    //     //Dynamically get column names and counts intead of hardcoding them
+    //     ResultSetMetaData md = rs.getMetaData();
+    //     int numColumns = md.getColumnCount();
+    //     //Print column heads
+    //     for(int i = 1; i <= numColumns; i++) { 
+    //         System.out.print(md.getColumnName(i) + " ");
+    //     }
+    //     System.out.println();
+    //     //Print table contents using an object because of variability in
+    //     //column data types
+    //     while(rs.next()) {
+    //         for(int i = 1; i <=numColumns; i++) {
+    //             Object obj = rs.getObject(i);
+    //             System.out.print(obj + " ");
+    //         }
+    //         System.out.println();
+    //     }
+    // }
+
+    ERROR PRONE FILE IMPORT CODE
+    // static void readQuestionsFromFile() throws IOException { 
+    //     System.out.println("In readQuestionsFromFile. Attempting to read questions.txt");
+    //     try{
+    //         //Read in the file
+    //         BufferedReader br = new BufferedReader(new FileReader("./questions.txt"));
+    //         List<String>UWList = new ArrayList<>();
+    //         List<String>EAPList = new ArrayList<>();
+    //         List<String>TEDList = new ArrayList<>();
+    //         String line;
+    //         //While reading the file, populate lists based on header row
+    //         while((line = br.readLine()) != null) {
+    //             if(line.equals("UWQuestions")) {
+    //                 System.out.println("In add UWQuestions.");
+    //                 while(true) {
+    //                     line = br.readLine();
+    //                     if (line == null || line.equals("EAPQuestions") || line.equals("TEDQuestions")) {
+    //                         break;
+    //                     }
+    //                     UWList.add(line);
+    //                 }
+    //             } else if(line.equals("EAPQuestions")) {
+    //                 System.out.println("In add EAP Questions.");
+    //                 while(true) {
+    //                     line = br.readLine();
+    //                     if (line == null || line.equals("UWQuestions") || line.equals("TEDQuestions")) {
+    //                         break;
+    //                     }
+    //                     EAPList.add(line);
+    //                 }
+    //             } else if(line.equals("TEDQuestions")) {
+    //                 System.out.println("In add TED Questions.");
+    //                 while(true) {
+    //                     line = br.readLine();
+    //                     if (line == null || line.equals("UWQuestions") || line.equals("EAPQuestions")) {
+    //                         break;
+    //                     }
+    //                     TEDList.add(line);
+    //                 }
+    //             }
+    //         }
+            
+    //         UWQuestions = UWList.toArray(new String[0]);
+    //         EAPQuestions = EAPList.toArray(new String[0]);
+    //         TEDQuestions = TEDList.toArray(new String[0]);
+    //         System.out.println("questions.txt successfully read");
+    //         System.out.println("UW List: " + UWQuestions.length);
+    //         System.out.println("EAP List: " + EAPQuestions.length);
+    //         System.out.println("TED List: " + TEDQuestions.length);
+
+    //         br.close();
+    //     }catch (FileNotFoundException e) {
+    //         e.printStackTrace();
+    //         System.out.println("File: \"questions.txt\" not found in this directory.");
+    //     }
+    // }
+
+    ANGULAR LOAD TESTING
+        //Testing code to force angular loading
+        // angular.element(document).ready(function() {
+        //     angular.resumeBootstrap();
+        // });
+
+    VERBOSE UPDATE CODE
+        // {
+
+        // userid: jsonObject.userid,
+        // username: jsonObject.username,
+        // firstname: jsonObject.firstname,
+        // lastname: jsonObject.lastname,
+        // usertype: jsonObject.usertype,
+        // classid: jsonObject.classid,
+        // teacher: jsonObject.teacher,
+        // teacherid: jsonObject.teacherid,
+        // studentid: jsonObject.studentid,
+        // questionid: jsonObject.questionid,
+        // examid: jsonObject.examid,
+        // pointspossible: jsonObject.pointspossible,
+        // pointearned: jsonObject.pointsearned,
+        // teacherfeedback: jsonObject.teacherfeedback,
+        // questiontext: jsonObject.questiontext,
+        // };
+    ATTEMPTS AT 2-WAY BINDING FOR ARRAYS 
+        //Apply array formatting for 2-way bindings
+        // let array = JSON.parse(sessionStorage.getItem("teacherClasses") || '[]');
+        // $scope.user.formattedClassList = $filter('formatArray')(array);
+        // function populateClassList($scope) {
+        //     console.log("In populate ClassList()");
+        //     console.log("data.teacherClasses=" + data.teacherClasses + " $scope.teacherClasses=" + $scope.user.teacherClasses);
+
+        //     //Set session info to include classes
+        //     if(!$scope.user.teacherClasses) {
+        //         var errorOutput = document.getElementById('output');
+        //         if(errorOutput) {
+        //             errorOutput.textContent = 'ERROR: You have not been assigned any class sections. If you feel this information is in error, please contact your VVEE administrator.';
+        //         }
+        //     }else if($scope.user.teacherClasses) {
+        //         var output = document.getElementById("output");
+        //         if(output) { 
+        //             output.textContent = 'You have been assigned to ' + $scope.user.teacherClasses;
+        //         }
+        //     }
+        // }
+
+        // //Format arrays for 2-way bindings
+        // app.filter('formatArray', function() {
+        //     return function(array) {
+        //         if (!array || !array.length) return '';
+                
+        //         switch (array.length) {
+        //             case 1:
+        //                 return array[0];
+        //             case 2:
+        //                 return array.join(' and ');
+        //             default:
+        //                 let last = array.pop();
+        //                 return array.join(', ') + ', and ' + last;
+        //         }
+        //     };
+        // });
+    ATTEMPTED TO MAKE DROPDOWN BOX FROM TEACHER ARRAY. DIDN'T WORK.
+      <!-- <select ng-model="user.addToClass" ng-options="class in user.teacherClasses" required>
+                    <option value="">Select a class</option>
+                </select> -->
+    ATTEMPTED TO MAKE THE VIEWPORTAL LARGER, BUT JUST ENDED UP MAKING THE PAGE TOO BIG 
+        /* html, body {
+        
+        min-height: 100vh;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        }
+        body {
+            min-height: 100vh; 
+            padding: 0;
+        } */
+    ATTEMPTED TO GET THE SLIDER TO ONLY SPAN PART OF THE PAGE
+        div .custom-slider md-slider {
+            width: 60%;       
+            margin: 0 auto;   
+        }
+
+        .slider-container {
+            width: 60%; 
+            margin: 0 auto;
+        }

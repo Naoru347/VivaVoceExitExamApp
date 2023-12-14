@@ -1,0 +1,78 @@
+/* styles.css */
+
+/* Add styles for the table */
+
+
+table {
+    border-collapse: collapse; 
+    width: 100%;
+}
+
+td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: teal;
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+    color: white;
+}
+
+#output2 {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.button-container button {
+    margin: 10px; /* Add space between */
+    height: 50px; /* Bigger height */
+    width: 150px; /* Bigger width */
+    font-size: 18px; /* Larger text */ 
+}
+  
+.action-button {
+    background: teal;
+    color: white;
+    font-weight: bold;
+}
+
+.admin-button {
+    background: red;
+    color: white;
+    font-weight: bold;
+}
+
+div {
+    margin: 0; 
+}
+/* CSS to attempt to fix pop-up box issues */
+md-dialog { 
+    top: 10% !important;
+    min-width: 400px;
+}
+
+md-dialog-content {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+md-dialog md-toolbar {
+    background-color: teal; 
+    color: white;
+}
+
+textarea {
+    width: 65%;      
+    height: 150px;    
+    resize: vertical; 
+    margin-bottom: 15px; 
+}

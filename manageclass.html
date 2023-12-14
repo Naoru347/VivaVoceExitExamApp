@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8">
+
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.css"></link>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-animate.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-aria.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-messages.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.js"></script> 
+        <!-- <script src="angular.min.js"></script>
+        <link rel="stylesheet" href="angular-material.min.css"> -->
+        <link rel="stylesheet" href="styles.css">
+        <!-- <script src="angular-animate.min.js"></script>
+        <script src="angular-aria.min.js"></script>
+        <script src="angular-messages.min.js"></script>
+        <script src="angular-material.min.js"></script> -->
+        <script src="TeacherExamScript.js"></script>
+
+        <title>Viva Voce Exit Exam Site</title>
+        <link rel="icon" href="testform.png">
+
+    </head>
+    <body ng-app="teacherExamApp" ng-controller="control">
+        <div>
+            <md-toolbar md-theme="teacherTheme">
+                <center><h1>Teacher's Portal<code>&#8212;</code>Class Management</h1></center>
+            </md-toolbar>
+        </div>
+        <div>    
+            <md-divider></md-divider>
+            <p>This term, you have been assigned to teach: <b>{{user.teacherClasses || 'No Classes Assigned'}}</b></p>
+        </div>
+        <div>
+            <center><h3>To <em>add</em> a student to one of your classes, fill out the form, below: </h3></center>
+            <form name="addStudent" style="display: flex; flex-direction: column; align-items: center;">
+                Student ID Number:
+                <input type="text" ng-model="user.addStudentID" required><br>
+                Assign to Class:
+                <!-- Adding debouce to make this aspect of form validation less annoying 
+                w/o it, the form will attempt to validate with every charcter entered-->
+                <input type="text" ng-model="user.addToClass" ng-model-options="{ debounce: 1000 }" required ><br>
+                <button ng-click="add()">
+                    Add Student
+                </button>
+                <br>
+            </form>
+            <p id="output"></p>
+            <md-divider></md-divider>
+        </div>
+        <div>
+            <center><h3>To <em>remove</em> a student to one of your classes, fill out the form, below: </h3></center>
+            <form name="removeStudent" style="display: flex; flex-direction: column; align-items: center;">
+                Student ID Number:
+                <input type="text" ng-model="user.removeStudentID" required><br>
+                Remove from Class:
+                <!-- Adding debouce to make this aspect of form validation less annoying -->
+                <input type="text" ng-model="user.removeFromClass" ng-model-options="{ debounce: 1000 }" required><br>
+                <button ng-click="remove()">
+                    Remove Student
+                </button>
+                <br>
+            </form>
+            <p id="output2a"></p>
+            <md-divider></md-divider>
+        </div>
+        <div>
+            <br>
+            <center>
+                <button ng-click="logout()">
+                    Logout
+                </button>
+            </center>
+        </div>
+    </body>
+    <footer style="font-size: small; text-align: center;">
+        <p>&copy;2023 Paiz EdTech Consulting. All rights reserved</p>
+        <p>VVEE Web Platform v 0.1</p>
+        <p>If you notice errors with the information on this page <a href="mailto:jpaiz@gwmail.gwu.edu">email your campus VVEE administrator.</a></p>
+    </footer>
+    </html>

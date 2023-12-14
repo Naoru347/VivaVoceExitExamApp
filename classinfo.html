@@ -1,0 +1,39 @@
+<!-- Template for the ClassID pop up to start an exam -->
+<md-dialog aria-label="Class Info Form">
+    <form name="classInfoForm">
+        <md-toolbar md-theme="teacherTheme">
+            <div class="md-toolbar-tools">
+                <h2>Enter Class Information</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon aria-label="Close dialog">X</md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <!-- Size limiter -->
+        <md-dialog-content style="max-width:800px;max-height:810px; ">
+            <md-input-container class="md-block">
+                <label>Class ID</label>
+                <!-- Built-in form validation -->
+                <input required ng-model="classId" name="classId" 
+                       pattern="^[A-Za-z]{2,3}\d{3,4}$" 
+                       ng-pattern="/^[A-Za-z]{2,3}\d{3,4}$/">
+                <div ng-messages="classInfoForm.classId.$error" role="alert">
+                    <!-- With warning message -->
+                    <div ng-message="required">This is required.</div>
+                    <div ng-message="pattern">Class ID should be 2-3 letters followed by 3-4 numbers.</div>
+                </div>
+            </md-input-container>
+        </md-dialog-content>
+        <!-- Button container -->
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button ng-click="cancel()">
+                Cancel
+            </md-button>
+            <md-button ng-click="answer(classId)" style="margin-right:20px;" ng-disabled="classInfoForm.$invalid">
+                Submit
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

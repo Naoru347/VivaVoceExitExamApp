@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.css"></link>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-animate.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-aria.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-messages.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.js"></script>
+        <!-- <script src="angular.min.js"></script> -->
+        <!-- <link rel="stylesheet" href="angular-material.min.css"> -->
+        <link rel="stylesheet" href="./styles.css">
+        <!-- <script src="angular-animate.min.js"></script> -->
+        <!-- <script src="angular-aria.min.js"></script> -->
+        <!-- <script src="angular-messages.min.js"></script> -->
+        <!-- <script src="angular-material.min.js"></script> -->
+        <script src="AdminScript.js"></script>
+
+        <title>Viva Voce Exit Exam Site</title>
+        <link rel="icon" href="testform.png">
+
+    </head>
+    <body ng-app="adminApp" ng-controller="control">
+        <div>
+            <md-toolbar md-theme="adminTheme">
+                <center><h1>Viva Voce Exit Examination Platform: Administrator Terminal</h1></center>
+            </md-toolbar>
+        </div>
+        <div>
+            <h2>Viva Voce Oral Exam Platform Administration</h2>
+            <p>
+                Welcome {{user.firstname}} {{user.lastname}}! Below, you'll fine the functionality that you need to manage much of the Viva Voce Exit Exam process for your institution. Please note that if an ability you're looking for is not avaiable from this page, you may need to contact your school's Database or Educational Records Administrator, or member of the Office of the Registrar. 
+            </p>
+            <p>Through this portal, you will be able to: </p>
+            <ul>
+                <li>View important user and database information</li>
+                <ul>
+                    <li>User Information</li>
+                    <li>Exam Questions</li>
+                    <li>Exam/Class Bindings</li>
+                    <li>Student Exam Records</li>
+                </ul>
+                <li>Modify/Add/Delete Users</li>
+                <li>Delete Questions</li>
+                <li>Delete an Exam Record</li>
+            </ul>
+            <md-divider></md-divider>
+            <div class="button-container">
+
+                <button class="admin-button" ng-click="manageUsers()">User Account Operations</button>
+                <button class="admin-button" ng-click="manageExamQuestions()">Exam Question Operations</button>
+                <button class="admin-button" ng-click="manageExamRecords()">Exam Records Operations</button>
+            </div>
+            <md-divider></md-divider>
+            <p id="output"></p>
+            <p>
+                <em>Please note: </em>If you encounter issues with functionality, or would like to explore adding new functionality, please email your Viva Voce Exit Exam administrator at the link below.
+            </p>
+            <center>
+                <button ng-click="logout()">
+                    Logout
+                </button>
+            </center>
+        </div>
+    </body>
+    <!-- 
+        Including a footer with a mailto link so that people can email the administrator to sign up for an account.
+        I am the administrator in this simulated case.
+     -->
+    <footer style="font-size: small; text-align: center;">
+        <p>&copy;2023 Paiz EdTech Consulting. All rights reserved</p>
+        <p>VVEE Web Platform v 0.1</p>
+        <p>If you notice errors with the information on this page <a href="mailto:jpaiz@gwmail.gwu.edu">email your campus VVEE administrator.</a></p>
+    </footer>
+</html>

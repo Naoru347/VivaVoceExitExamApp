@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.css"></link>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-animate.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-aria.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-messages.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.js"></script> 
+        <!-- <script src="angular.min.js"></script>
+        <link rel="stylesheet" href="angular-material.min.css"> -->
+        <link rel="stylesheet" href="styles.css">
+        <!-- <script src="angular-animate.min.js"></script>
+        <script src="angular-aria.min.js"></script>
+        <script src="angular-messages.min.js"></script>
+        <script src="angular-material.min.js"></script> -->
+        <script src="TeacherExamScript.js"></script>
+
+        <title>Viva Voce Exit Exam Site</title>
+        <link rel="icon" href="testform.png">
+
+    </head>
+    <div id="dialogAnchor"></div>
+    <body ng-app="teacherExamApp" ng-controller="control">
+        <div>
+            <md-toolbar md-theme="teacherTheme">
+                <center><h1>Teacher's Portal<code>&#8212;</code>Examination Panel</h1></center>
+            </md-toolbar>
+        </div>
+        <div>
+            <h2>Beginning Exam for a student enrolled in {{user.classid}}:</h2>
+            <md-divider></md-divider>
+            <md-divider></md-divider>
+            <md-divider></md-divider>
+            <form id="examInfo" name="examForm" novalidate>
+                Enter relevant exam information here:
+                <p>
+                    Student ID: 
+                    <input type="number" name="studentId" ng-model="user.studentid" required>
+                    <div ng-messages="examForm.studentId.$error">
+                        <div ng-message="required">This field is required.</div>
+                        <div ng-message="number">Please enter a valid number.</div>
+                    </div>
+                </p>
+                <p>
+                    Points Possible: 
+                    <input type="number" name="pointsPossible" ng-model="user.pointspossible" required min="1">
+                    <div ng-messages="examForm.pointsPossible.$error">
+                        <div ng-message="required">This field is required.</div>
+                        <div ng-message="number">Please enter a valid number.</div>
+                        <div ng-message="min">Points must be at least 1.</div>
+                    </div>
+                </p>
+            </form>
+            
+            <md-divider></md-divider>
+            <md-divider></md-divider>
+            <div ng-repeat="question in user.examQuestionTexts track by $index">
+                <h3>Question {{$index + 1}}:</h3>
+                <p>{{question}}</p>
+        
+                <label>Teacher's Feedback:</label>
+                <p>If you are not leaving feedback, please type "none".</p>
+                <p><textarea ng-model="user.feedback[$index]" required></textarea></p>
+                <div class="slider-container">
+                    <p><label>Score (out of 5):</label></p>
+                    <div>
+                        <select ng-model="user.scores[$index]" ng-options="n for n in [0, 1, 2, 3, 4, 5]">
+                            <option value="">Select a score</option>
+                        </select>
+                    </div>                
+                </div>
+            </div>
+            <div>
+                <br><br>
+                <button ng-click="calculateFinalScore()">Calculate Final Score</button>
+                <h3>Final Score: {{user.pointsearned}}</h3>
+                <button ng-click="submitExam()">Submit Exam</button>
+            </div>
+            <md-divider></md-divider>
+            <md-divider></md-divider>
+            <md-divider></md-divider>
+            <p id="output"></p>
+            <p>
+                <em>Please note: </em>If you encounter issues with functionality, or would like to explore adding new functionality, please email your Viva Voce Exit Exam administrator at the link below.
+            </p>
+            <center>
+                <button ng-click="logout()">
+                    Logout
+                </button>
+            </center>
+        </div>
+    </body>
+    <!-- 
+        Including a footer with a mailto link so that people can email the administrator to sign up for an account.
+        I am the administrator in this simulated case.
+     -->
+    <footer style="font-size: small; text-align: center;">
+        <p>&copy;2023 Paiz EdTech Consulting. All rights reserved</p>
+        <p>VVEE Web Platform v 0.1-beta-3</p>
+        <p>If you notice errors with the information on this page <a href="mailto:jpaiz@gwmail.gwu.edu">email your campus VVEE administrator.</a></p>
+    </footer>
+</html>
